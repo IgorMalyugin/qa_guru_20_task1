@@ -59,7 +59,7 @@ public class TextboxTests {
         $(".table-responsive").shouldHave(text("Артем Куликов"));
         $(".table-responsive").shouldHave(text("art@mail.ru"));
         $(".table-responsive").shouldHave(text("Male"));
-//        $(".table-responsive").shouldHave(text("89032044455")); Не могу понять почему падает на этом месте?
+        $(".table-responsive").shouldHave(text("9032044455"));
         $(".table-responsive").shouldHave(text("14 July,2002"));
         $(".table-responsive").shouldHave(text("English"));
         $(".table-responsive").shouldHave(text("Sports"));
