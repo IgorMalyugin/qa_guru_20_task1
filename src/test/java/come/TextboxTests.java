@@ -33,7 +33,7 @@ public class TextboxTests {
 
         $("#genterWrapper").$(byText("Male")).click();
 
-        $("#userNumber").setValue("89032044455");
+        $("#userNumber").setValue("9032044455");
 
         $("#dateOfBirthInput").click();
         $("[class*='month-select']").selectOptionByValue("6");
@@ -44,7 +44,7 @@ public class TextboxTests {
 
         $("#hobbiesWrapper").$(byText("Sports")).click();
 
-        $("#uploadPicture").uploadFile(new File("src/test/java/image/image.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/resource/image.png"));
 
         $("#currentAddress").setValue("Москва");
 
