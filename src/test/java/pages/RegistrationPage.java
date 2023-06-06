@@ -17,7 +17,7 @@ public class RegistrationPage {
             firstName = $("#firstName"),
             lastName = $("#lastName"),
             userEmail = $("#userEmail"),
-            genter = $("#genterWrapper"),
+            gender = $("#genterWrapper"),
             number = $("#userNumber"),
             birthDayInput = $("#dateOfBirthInput"),
             subjects = $("#subjectsInput"),
@@ -32,7 +32,11 @@ public class RegistrationPage {
 
     public RegistrationPage openPages() {
         open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()"); // удаляем банер
+        return this;
+    }
+
+    public RegistrationPage closeBaner(){
+        executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
         return this;
@@ -44,20 +48,20 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setlastName(String values) {
+    public RegistrationPage setLastName(String values) {
         lastName.setValue(values);
 
         return this;
     }
 
-    public RegistrationPage setuserEmail(String values) {
+    public RegistrationPage setUserEmail(String values) {
         userEmail.setValue(values);
 
         return this;
     }
 
-    public RegistrationPage setgenter(String value) {
-        genter
+    public RegistrationPage setGender(String value) {
+        gender
                 .$(byText(value))
                 .click();
 
@@ -122,7 +126,6 @@ public class RegistrationPage {
 
     public void check(String key, String value){
         tableResponsive.$(byText(key)).sibling(0).shouldHave(text(value));
-//        tableResponsive.$(byText("Student Name")).sibling(0).shouldHave(text("Alex Egorov"));
     }
 
 

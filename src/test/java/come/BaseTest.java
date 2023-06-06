@@ -6,7 +6,7 @@ import pages.RegistrationPage;
 
 public class BaseTest {
 
-    RegistrationPage registrationPage = new RegistrationPage();
+
 
     @BeforeAll
     static void beforeTest() {
