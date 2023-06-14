@@ -128,6 +128,12 @@ public class RegistrationPage {
         tableResponsive.$(byText(key)).sibling(0).shouldHave(text(value));
     }
 
+    public void test(){
+        $("").selectOption("", "");
+
+
+    }
+
 
 
 }
