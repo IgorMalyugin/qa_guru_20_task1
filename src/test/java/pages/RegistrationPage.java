@@ -35,7 +35,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage closeBaner(){
+    public RegistrationPage closeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -74,66 +74,59 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDay(String day, String month, String year){
+    public RegistrationPage setBirthDay(String day, String month, String year) {
         birthDayInput.click();
         calendarComponent.setDate(day, month, year);
 
         return this;
     }
 
-    public RegistrationPage setSubjects(String  value){
+    public RegistrationPage setSubjects(String value) {
         subjects.setValue(value).pressEnter();
 
         return this;
     }
 
-    public RegistrationPage setHobbies(String value){
+    public RegistrationPage setHobbies(String value) {
         hobbies.$(byText(value)).click();
 
         return this;
     }
 
-    public RegistrationPage setUploadPicture(String value){
+    public RegistrationPage setUploadPicture(String value) {
         picture.uploadFile(new File(value));
 
         return this;
     }
 
-    public RegistrationPage setCurrentAddress(String value){
+    public RegistrationPage setCurrentAddress(String value) {
         address.setValue(value);
 
         return this;
     }
 
-    public RegistrationPage setState(String value){
+    public RegistrationPage setState(String value) {
         state.click();
         state.$(byText(value)).click();
 
         return this;
     }
 
-    public RegistrationPage setCity(String value){
+    public RegistrationPage setCity(String value) {
         city.click();
         city.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage submit(){
+    public RegistrationPage submit() {
         buttonSubmit.click();
 
         return this;
     }
 
-    public void check(String key, String value){
+    public void check(String key, String value) {
         tableResponsive.$(byText(key)).sibling(0).shouldHave(text(value));
     }
-
-    public void test(){
-        $("").selectOption("", "");
-
-
-    }
-
 
 
 }

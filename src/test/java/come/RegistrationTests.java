@@ -13,10 +13,8 @@ public class RegistrationTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-
     @Test
     void registrationTest() {
-        Faker faker = new Faker(new Locale("en"));
         String firstName = faker.name().firstName(),
                 lastName = faker.name().lastName(),
                 userEmail = faker.internet().emailAddress(),
@@ -29,13 +27,14 @@ public class RegistrationTests extends BaseTest {
                 subjects = getRandomSubject(),
                 hobbies = getRandomHobbies(),
                 state = getRandomState(),
-                city = getRandomCity(state);
+                city = getRandomCity(state),
+                file = "src/test/resources/img/image.png";
 
 
 
         registrationPage
                 .openPages()
-                .closeBaner()
+                .closeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
@@ -44,11 +43,12 @@ public class RegistrationTests extends BaseTest {
                 .setBirthDay(day, month, year)
                 .setSubjects(subjects)
                 .setHobbies(hobbies)
-                .setUploadPicture("src/test/resources/img/image.png")
+                .setUploadPicture(file)
                 .setCurrentAddress(currentAddress)
                 .setState(state)
                 .setCity(city)
                 .submit();
+
         registrationPage.check("Student Name", firstName + " " + lastName);
         registrationPage.check("Student Email", userEmail);
         registrationPage.check("Gender", gender);

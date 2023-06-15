@@ -2,19 +2,21 @@ package utils;
 
 import com.github.javafaker.Faker;
 
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
-    static Faker faker = new Faker();
+    public static Faker faker = new Faker(new Locale("en"));
 
     public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-        return faker.options().option(genders);
+        return faker.options().option("Male", "Female", "Other");
     }
 
+
     public static String getRandomMonth() {
-        String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        return faker.options().option(month);
+        return faker.options()
+                .option("January", "February", "March", "April", "May", "June", "July",
+                        "August", "September", "October", "November", "December");
     }
 
     public static int getRandomInt(int min, int max) {
@@ -22,33 +24,29 @@ public class RandomUtils {
     }
 
     public static String getRandomSubject() {
-        String[] subjects = {"Math", "English", "Chemistry", "Civics", "Computer Science", "Arts", "Physics", "Economics"};
-        return faker.options().option(subjects);
+        return faker.options()
+                .option("Math", "English", "Chemistry", "Civics", "Computer Science",
+                        "Arts", "Physics", "Economics");
     }
 
     public static String getRandomHobbies() {
-        String[] hobby = {"Sports", "Reading", "Music"};
-        return faker.options().option(hobby);
+        return faker.options().option("Sports", "Reading", "Music");
     }
 
     public static String getRandomState() {
-        String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-        return faker.options().option(state);
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
     public static String getRandomCity(String state) {
         if (state.equals("NCR")) {
-            String[] city = {"Delhi", "Gurgaon", "Noida"};
-            return faker.options().option(city);
+            return faker.options().option("Delhi", "Gurgaon", "Noida");
         } else if (state.equals("Uttar Pradesh")) {
-            String[] city = {"Agra", "Lucknow", "Merrut"};
-            return faker.options().option(city);
+            return faker.options().option("Agra", "Lucknow", "Merrut");
         } else if (state.equals("Haryana")) {
-            String[] city = {"Karnal", "Panipat"};
-            return faker.options().option(city);
+            return faker.options().option("Karnal", "Panipat");
         } else if (state.equals("Rajasthan")) {
             String[] city = {"Jaipur", "Jaiselmer"};
-            return faker.options().option(city);
+            return faker.options().option("Jaipur", "Jaiselmer");
         }
         return null;
     }
