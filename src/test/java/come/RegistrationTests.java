@@ -1,6 +1,9 @@
 package come;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -13,6 +16,9 @@ public class RegistrationTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+    @Tag("simple")
+    @Owner("Малюгин И А")
+    @DisplayName("Автотест на регистрацию")
     @Test
     void registrationTest() {
         String firstName = faker.name().firstName(),
@@ -29,7 +35,6 @@ public class RegistrationTests extends BaseTest {
                 state = getRandomState(),
                 city = getRandomCity(state),
                 file = "src/test/resources/img/image.png";
-
 
 
         registrationPage
