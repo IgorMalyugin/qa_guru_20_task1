@@ -9,6 +9,7 @@ import pages.RegistrationPage;
 
 import java.util.Locale;
 
+import static io.qameta.allure.Allure.step;
 import static utils.RandomUtils.*;
 
 
@@ -36,34 +37,37 @@ public class RegistrationTests extends BaseTest {
                 city = getRandomCity(state),
                 file = "src/test/resources/img/image.png";
 
+        step("Fill form", () -> {
+            registrationPage
+                    .openPages()
+                    .closeBanner()
+                    .setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setUserEmail(userEmail)
+                    .setGender(gender)
+                    .setUserNumber(userNumber)
+                    .setBirthDay(day, month, year)
+                    .setSubjects(subjects)
+                    .setHobbies(hobbies)
+                    .setUploadPicture(file)
+                    .setCurrentAddress(currentAddress)
+                    .setState(state)
+                    .setCity(city)
+                    .submit();
+        });
 
-        registrationPage
-                .openPages()
-                .closeBanner()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setBirthDay(day, month, year)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .setUploadPicture(file)
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
-                .submit();
-
-        registrationPage.check("Student Name", firstName + " " + lastName);
-        registrationPage.check("Student Email", userEmail);
-        registrationPage.check("Gender", gender);
-        registrationPage.check("Mobile", userNumber);
-        registrationPage.check("Date of Birth", day + " " + month + "," + year);
-        registrationPage.check("Subjects", subjects);
-        registrationPage.check("Hobbies", hobbies);
-        registrationPage.check("Picture", "image.png");
-        registrationPage.check("Address", currentAddress);
-        registrationPage.check("State and City", state + " " + city);
+        step("Check form", () -> {
+            registrationPage.check("Student Name", firstName + " " + lastName);
+            registrationPage.check("Student Email", userEmail);
+            registrationPage.check("Gender", gender);
+            registrationPage.check("Mobile", userNumber);
+            registrationPage.check("Date of Birth", day + " " + month + "," + year);
+            registrationPage.check("Subjects", subjects);
+            registrationPage.check("Hobbies", hobbies);
+            registrationPage.check("Picture", "image.png");
+            registrationPage.check("Address", currentAddress);
+            registrationPage.check("State and City", state + " " + city);
+        });
 
 
     }
