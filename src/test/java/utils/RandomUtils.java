@@ -45,7 +45,6 @@ public class RandomUtils {
         } else if (state.equals("Haryana")) {
             return faker.options().option("Karnal", "Panipat");
         } else if (state.equals("Rajasthan")) {
-            String[] city = {"Jaipur", "Jaiselmer"};
             return faker.options().option("Jaipur", "Jaiselmer");
         }
         return null;
